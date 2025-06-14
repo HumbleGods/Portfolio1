@@ -308,7 +308,7 @@ p {
   border: 0;
 }
 
-/* Projects Section */
+/* Projects Section - Enhanced */
 #projects {
   background-color: #532E1C;
   text-align: center;
@@ -325,7 +325,7 @@ p {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -339,6 +339,8 @@ p {
   text-align: left;
   position: relative;
   min-height: 300px;
+  display: flex;
+  flex-direction: column;
 }
 
 .project:hover,
@@ -356,75 +358,78 @@ p {
 .project h3 {
   color: #C5A880;
   margin-bottom: 1rem;
+  font-size: 1.5rem;
 }
 
-.project p {
+.project-description {
   color: #E6E6E6;
   margin-bottom: 1.5rem;
   text-align: left;
   max-width: none;
+  flex-grow: 1;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tech-tag {
+  background-color: rgba(197, 168, 128, 0.2);
+  color: #C5A880;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid rgba(197, 168, 128, 0.3);
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: auto;
 }
 
 .project-link {
-  color: #C5A880;
-  text-decoration: underline;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #C5A880;
+  color: #0F0F0F;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
   font-weight: 600;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  border: 2px solid #C5A880;
+  font-size: 0.95rem;
 }
 
 .project-link:hover,
 .project-link:focus {
-  color: #E6E6E6;
+  background-color: transparent;
+  color: #C5A880;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(197, 168, 128, 0.3);
   outline: 2px solid #C5A880;
   outline-offset: 2px;
 }
 
-/* Project placeholders */
-#ss {
-  background: linear-gradient(135deg, #C5A880, #532E1C);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.project-link.secondary {
+  background-color: transparent;
+  color: #C5A880;
+  border: 2px solid #C5A880;
 }
 
-#ss::after {
-  content: "Project 1 - Coming Soon";
-  color: #E6E6E6;
-  font-size: 1.5rem;
-  font-weight: 600;
+.project-link.secondary:hover,
+.project-link.secondary:focus {
+  background-color: #C5A880;
+  color: #0F0F0F;
 }
 
-#si {
-  background: linear-gradient(135deg, #532E1C, #C5A880);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#si::after {
-  content: "Project 2 - Coming Soon";
-  color: #E6E6E6;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-/* Project images - if using background images */
-.project-image {
-  width: 100%;
-  height: 200px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.project-image[style*="ss.png"] {
-  background-image: url('./ss.png');
-}
-
-.project-image[style*="si.jpg"] {
-  background-image: url('./si.jpg');
-}
 
 /* Contact Section - FIXED DESIGN */
 #contact {
