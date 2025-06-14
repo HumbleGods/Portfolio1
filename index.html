@@ -3,325 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>Psy Creative's</title>
-  <style>
-    /* General Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth; /* Smooth scrolling for the entire page */
-    }
-
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #000; /* Black background */
-      color: #fff; /* White text */
-      line-height: 1.6;
-      margin: 0;
-      padding-top: 50px; /* Space for fixed header */
-      position: relative;
-      overflow: hidden; /* Prevent overflow of floating code */
-    }
-
-    /* Floating Code Animation */
-    .floating-code {
-      position: absolute;
-      color: rgba(255, 140, 0, 0.8); /* Orange color */
-      font-family: 'Courier New', monospace;
-      font-size: 1.5rem;
-      animation: floatCode 15s infinite linear;
-      opacity: 0.8;
-      white-space: nowrap;
-      transform-origin: bottom left;
-    }
-
-    /* Header */
-    header {
-      background-color: black; /* Light orange header */
-      color: white;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      padding: 15px 0;
-      z-index: 1000;
-    }
-
-    header nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-    }
-
-    header nav ul li {
-      margin: 0 20px;
-    }
-
-    header nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-size: 1.2rem;
-      transition: transform 0.3s ease, background-color 0.3s, color 0.3s;
-      padding: 10px 15px;
-      border-radius: 5px;
-      font-family: 'Comic Sans MS', cursive, sans-serif; /* Playful font */
-    }
-
-    /* Hover Effect - Smooth downwards movement */
-    header nav ul li a:hover {
-      background-color: #FF8C00; /* Darker orange hover */
-      color: white;
-      transform: translateY(5px); /* Moves the link down */
-    }
-
-    /* Section Styling */
-    section {
-      padding: 100px 20px;
-      text-align: center;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    section h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      color: #FF8C00; /* Darker orange for headings */
-      animation: slideUp 1s ease-out;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-    }
-
-    section p {
-      font-size: 1.2rem;
-      color: #fff; /* White text */
-      margin-bottom: 20px;
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    /* About Me Section */
-    #about {
-      background: linear-gradient(135deg, #FF8C00, #FFA500); /* Gradient background */
-      text-align: center;
-      padding: 60px 20px;
-      color: #fff;
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    .about-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    #about h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      color: #fff;
-      animation: slideUp 1s ease-out;
-    }
-
-    .about-content {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-top: 30px;
-    }
-
-    .about-image {
-      max-width: 250px;
-      border-radius: 50%;
-      margin-right: 30px;
-      border: 4px solid #FF8C00;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease-in-out;
-    }
-
-    .about-image:hover {
-      transform: scale(1.1); /* Zoom effect on hover */
-    }
-
-    .about-text {
-      max-width: 600px;
-      padding: 20px;
-      background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background for text */
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-      animation: fadeInText 2s ease-in-out;
-    }
-
-    .about-text p {
-      font-size: 1.2rem;
-      line-height: 1.6;
-      font-family: 'Arial', sans-serif;
-      color: #fff;
-    }
-    #skills ul {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Grid layout */
-  gap: 20px;
-  padding: 0;
-  animation: fadeIn 2s ease-in-out;
-}
-
-#skills ul li {
-  display: grid;
-  grid-template-columns: auto;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.8); /* Darker background with transparency */
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
-  transition: transform 0.3s ease, background-color 0.3s, box-shadow 0.3s ease;
-  backdrop-filter: blur(5px); /* Slight blur effect */
-}
-
-.skill-logo {
-  width: 50px; /* Set logo size */
-  height: 50px;
-  transition: transform 0.3s ease; /* Zoom effect on hover */
-}
-
-#skills ul li:hover {
-  transform: translateY(-8px);
-  background-color: #5c5b5a; /* Change background color on hover */
-  color: rgb(8, 8, 8);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
-}
-
-#skills ul li:active {
-  transform: translateY(3px); /* Slight downward effect on click */
-}
-
-#skills ul li img:hover {
-  transform: scale(1.2); /* Zoom effect on logo hover */
-}
-
-   /* Projects Section */
-#projects {
-  background-color: #222; /* Dark background for projects */
-  padding: 50px 20px;
-}
-
-.project-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Ensures responsiveness */
-  gap: 20px; /* Adds spacing between grid items */
-  justify-items: center; /* Centers the project items in the grid */
-}
-
-.project {
-  background-color: #333; /* Darker background for each project */
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  border-radius: 8px; /* Rounded corners for each project */
-  cursor: pointer;
-  position: relative;
-  overflow: hidden; /* Ensures image fits within the block */
-}
-
-.project h3 {
-  font-size: 1.8rem;
-  color: #FF8C00; /* Dark orange color for project titles */
-  margin-bottom: 10px;
-}
-
-.project p {
-  font-size: 1rem;
-  color: #fff; /* White text for project descriptions */
-}
-
-.project a {
-  color: #FF8C00;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.project:hover {
-  transform: translateY(-5px);
-}
-
-#ss, #si {
-  background-repeat: no-repeat;
-  background-size: cover; /* Ensures the background image covers the whole area */
-  background-position: center;
-  height: 200px; /* Fixed height for project blocks with background images */
-  width: 100%;
-  max-width: 600px; /* Ensures the background image doesn't stretch beyond a certain width */
-  margin: 0 auto; /* Centers the project blocks */
-  border-radius: 8px; /* Rounded corners for project blocks */
-  position: relative;
-}
-
-#ss {
-  background-image: url('./ss.png'); /* Replace with your image path */
-}
-
-#si {
-  background-image: url('./si.jpg'); /* Replace with your image path */
-}
-
-.project h3, .project p {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Centers the text over the background image */
-  z-index: 2; /* Ensures text is on top of the image */
-  text-align: center;
-  color: #fff; /* White text for readability */
-}
-
-
-    /* Contact Section */
-    #contact {
-      background-color: #222; /* Dark background for contact */
-      padding: 50px 20px;
-    }
-
-    #contact ul {
-      list-style: none;
-    }
-
-    #contact ul li {
-      font-size: 1.2rem;
-      color: #fff; /* White text */
-      margin-bottom: 10px;
-    }
-
-    #contact a {
-      color: #FF8C00;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    #contact a:hover {
-      text-decoration: underline;
-    }
-
-    /* Footer */
-    footer {
-      background-color: #FFA500; /* Matching header color */
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-
-    footer p {
-      font-size: 1rem;
-    }
-  </style>
 </head>
 <body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#home" class="skip-to-main">Skip to main content</a>
 
   <!-- Header -->
   <header>
@@ -335,75 +22,91 @@
     </nav>
   </header>
 
-  <!-- About Me Section -->
-  <section id="home">
-    <div class="about-container">
-      <h1>About Me</h1>
-      <div class="about-content">
-        <img src="ken.jpg" alt="Cyken Composo" class="about-image"/>
-        <div class="about-text">
-          <p>Hello, my name is Cyken Cordita Composo, and I am currently pursuing a Bachelor of Science in Information Technology (BSIT) at Siargao Island Institute of Technology. With a passion for both technology and strategic thinking, I strive to integrate my analytical skills from the world of chess into my academic and professional pursuits. 
-
-            As an avid chess player, I have been honing my skills for several years, participating in numerous local and regional tournaments. </p>
+  <main>
+    <!-- About Me Section -->
+    <section id="home">
+      <div class="about-container">
+        <h1>About Me</h1>
+        <div class="about-content">
+          <img src="ken.jpg" alt="Cyken Composo" class="about-image"/>
+          <div class="about-text">
+            <p>Hello, my name is Cyken Cordita Composo, and I am currently pursuing a Bachelor of Science in Information Technology (BSIT) at Siargao Island Institute of Technology. With a passion for both technology and strategic thinking, I strive to integrate my analytical skills from the world of chess into my academic and professional pursuits.</p>
+            <p>As an avid chess player, I have been honing my skills for several years, participating in numerous local and regional tournaments.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Skills Section -->
- <!-- Skills Section -->
-<section id="skills">
-  <div class="grid-container">
-  <h1>Skills</h1>
-  <ul>
-    <li>
-      <img src="html-logo.webp" alt="HTML Logo" class="skill-logo"/>
-    </li>
-    <li>
-      <img src="css-logo.png" alt="CSS Logo" class="skill-logo"/>
-    </li>
-    <li>
-      <img src="js-logo.png" alt="JavaScript Logo" class="skill-logo"/>
-    </li>
-    <li>
-      <img src="py-logo.png" alt="Python Logo" class="skill-logo"/>
-    </li>
-  </ul>
-</div>
-</section>
+    <!-- Skills Section -->
+    <section id="skills">
+      <div class="skills-container">
+        <h1>Skills</h1>
+        <div class="skills-grid">
+          <div class="skill-item" tabindex="0">
+            <img src="html-logo.webp" alt="HTML5 Logo" class="skill-logo"/>
+            <h3 class="skill-name">HTML5</h3>
+          </div>
+          <div class="skill-item" tabindex="0">
+            <img src="css-logo.png" alt="CSS3 Logo" class="skill-logo"/>
+            <h3 class="skill-name">CSS3</h3>
+          </div>
+          <div class="skill-item" tabindex="0">
+            <img src="js-logo.png" alt="JavaScript Logo" class="skill-logo"/>
+            <h3 class="skill-name">JavaScript</h3>
+          </div>
+          <div class="skill-item" tabindex="0">
+            <img src="py-logo.png" alt="Python Logo" class="skill-logo"/>
+            <h3 class="skill-name">Python</h3>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- Projects Section -->
+    <section id="projects">
+      <h1>Projects</h1>
+      <div class="project-container">
+        <!-- 1st Project -->
+        <div class="project" id="ss"></div>
+        
+        <!-- 2nd Project -->
+        <div class="project" id="si"></div>
+      </div>
+    </section>
 
-<section id="projects">
-  <h1>Projects</h1>
-  <div class="project-container">
-    <!-- 1st Project -->
-    
-    <div class="project" id="ss">
-    </div>
+    <!-- Contact Section -->
+    <section id="contact">
+      <h1>Get In Touch</h1>
+      <p>Let's connect! Feel free to reach out through any of these platforms or send me an email directly.</p>
+      
+      <div class="contact-card">
+        <div class="contact-icons">
+          <a href="https://www.facebook.com/iaaamken" target="_blank" class="contact-icon" aria-label="Facebook">
+            <img src="./picture/facebook.png" alt="Facebook">
+          </a>
+          <a href="https://www.instagram.com/iaaaaamken" target="_blank" class="contact-icon" aria-label="Instagram">
+            <img src="./picture/instagram.png" alt="Instagram">
+          </a>
+          <a href="https://www.tiktok.com/@kencorditacomposo" target="_blank" class="contact-icon" aria-label="TikTok">
+            <img src="./picture/tiktok.png" alt="TikTok">
+          </a>
+          <a href="https://humblegods.github.io/Portfolio1/" target="_blank" class="contact-icon" aria-label="GitHub Portfolio">
+            <img src="./picture/github.png" alt="GitHub">
+          </a>
+        </div>
+        
+        <div class="email-contact">
+          <p>Or send me an email:</p>
+          <a href="mailto:cyken.composo11@gmail.com" class="email-link">cyken.composo11@gmail.com</a>
+        </div>
+      </div>
+    </section>
 
-    <!-- 2nd Project -->
-    
-    <div class="project" id="si">
-
-    </div>
-  </div>
-</section>
-
-
-  <!-- Contact Section -->
-  <section id="contact">
-    <h1>Contact</h1>
-    <p>If you'd like to work together, feel free to reach out to me!</p>
-    <ul>
-      <li>INSTAGRAM<a href="https://www.instagram.com/iaaaaamken?igsh=MWFxeTlvNG4zbTVyYQ==">@IAAAAAMKEN</a></li>
-      <li>LinkedIn: <a href="https://www.facebook.com/iaaamken" target="_blank">linkedin.com/in/Ken Cordita Composo</a></li>
-    </ul>
-  </section>
+  </main>
 
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Cyken Composo | All rights reserved</p>
   </footer>
-
 </body>
 </html>
