@@ -268,6 +268,20 @@ p {
   background-color: transparent;
 }
 
+.project-img {
+  width: 200px;
+  height: 20px;
+  margin: 0 auto 1rem;
+  transition: transform 0.3s ease;
+  display: block;
+  object-fit: contain;
+  background-color: transparent;
+}
+
+.skill-item:hover .project-img {
+  transform: scale(1.15);
+}
+
 .skill-item:hover .skill-logo {
   transform: scale(1.15);
 }
