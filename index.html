@@ -2,39 +2,929 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Psy Creative's</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>James Carter | IT & Business Admin Portfolio | Featured Projects</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1e40af;
+      --primary-light: #3b82f6;
+      --secondary: #0f172a;
+      --gray-bg: #f1f5f9;
+      --card-bg: #ffffff;
+      --card-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.08);
+      --border-light: #e2e8f0;
+      --transition: all 0.3s ease;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-light);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #0f172a, var(--primary));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #1e293b;
+      transition: var(--transition);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: #0f172a;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-sm {
+      padding: 0.5rem 1.2rem;
+      font-size: 0.85rem;
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+    }
+
+    section {
+      padding: 100px 0 80px;
+    }
+
+    .hero {
+      padding-top: 130px;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+    }
+
+    .hero-grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero-badge {
+      background: #eef2ff;
+      color: var(--primary-dark);
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+      color: #0f172a;
+    }
+
+    .highlight {
+      color: var(--primary);
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: #334155;
+      max-width: 550px;
+      margin: 1.5rem 0;
+    }
+
+    .hero-image img {
+      max-width: 320px;
+      width: 100%;
+      border-radius: 32% 68% 70% 30% / 34% 42% 58% 66%;
+      box-shadow: var(--card-shadow);
+      background: #f1f5f9;
+      object-fit: cover;
+      border: 4px solid white;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      letter-spacing: -0.01em;
+      color: #0f172a;
+    }
+    .section-title span {
+      color: var(--primary);
+    }
+
+    /* Skills Section */
+    .skills-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+    .skills-category {
+      background: var(--card-bg);
+      border-radius: 28px;
+      padding: 1.8rem;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border-light);
+    }
+    .skills-category h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: #0f172a;
+    }
+    .skills-category h3 i {
+      color: var(--primary);
+    }
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .skill-card {
+      background: var(--gray-bg);
+      padding: 0.7rem 1.4rem;
+      border-radius: 40px;
+      font-weight: 500;
+      border: 1px solid var(--border-light);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
+    .skill-card i {
+      color: var(--primary);
+    }
+
+    /* Services Section */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 2rem;
+    }
+    .service-card {
+      background: var(--card-bg);
+      border-radius: 28px;
+      padding: 2rem;
+      transition: var(--transition);
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border-light);
+      text-align: center;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.12);
+    }
+    .service-icon {
+      width: 70px;
+      height: 70px;
+      background: #eef2ff;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 2rem;
+      color: var(--primary);
+    }
+    .service-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.8rem;
+    }
+    .service-card p {
+      color: #475569;
+    }
+
+    /* Projects Section - Enhanced & Visible */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 2rem;
+    }
+    .project-card {
+      background: var(--card-bg);
+      border-radius: 28px;
+      overflow: hidden;
+      transition: var(--transition);
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border-light);
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 40px -15px rgba(0, 0, 0, 0.2);
+    }
+    .project-img {
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.85), rgba(30, 64, 175, 0.9));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: 0.3s;
+    }
+    .project-card:hover .project-img-overlay {
+      opacity: 1;
+    }
+    .project-img-overlay a {
+      color: white;
+      font-size: 1rem;
+      margin: 0 10px;
+      background: rgba(255,255,255,0.2);
+      padding: 10px 18px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+    .project-img-overlay a:hover {
+      background: white;
+      color: var(--primary);
+    }
+    .project-info {
+      padding: 1.5rem;
+      flex: 1;
+    }
+    .project-info h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      color: #0f172a;
+    }
+    .project-info p {
+      color: #475569;
+      font-size: 0.9rem;
+      margin: 0.5rem 0;
+      line-height: 1.5;
+    }
+    .project-tags {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+    }
+    .project-tags span {
+      background: var(--gray-bg);
+      padding: 0.25rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+    .project-stats {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-light);
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+    .project-stats i {
+      margin-right: 5px;
+      color: var(--primary);
+    }
+
+    /* About */
+    .about-content {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+      flex-wrap: wrap;
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 2rem;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border-light);
+    }
+    .about-text p {
+      margin-bottom: 1rem;
+      color: #334155;
+    }
+    .about-stats {
+      flex: 1;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .stat {
+      background: var(--gray-bg);
+      padding: 1.2rem;
+      border-radius: 1.5rem;
+      text-align: center;
+      min-width: 100px;
+    }
+    .stat h4 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    /* Contact */
+    .contact-container {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      background: var(--card-bg);
+      border-radius: 2rem;
+      box-shadow: var(--card-shadow);
+      padding: 2.5rem;
+      border: 1px solid var(--border-light);
+    }
+    .contact-info {
+      flex: 1;
+    }
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .contact-detail i {
+      font-size: 1.4rem;
+      color: var(--primary);
+      width: 40px;
+    }
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .social-links a {
+      background: var(--gray-bg);
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: var(--primary);
+      font-size: 1.3rem;
+      transition: 0.2s;
+    }
+    .social-links a:hover {
+      background: var(--primary);
+      color: white;
+    }
+    .contact-form {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 0.9rem 1.2rem;
+      border: 1px solid var(--border-light);
+      border-radius: 28px;
+      font-family: inherit;
+      transition: 0.2s;
+      outline: none;
+    }
+    .contact-form input:focus, .contact-form textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--border-light);
+      color: #64748b;
+      background: white;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 24px;
+      }
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        background: white;
+        padding: 1.2rem 0;
+        margin-top: 1rem;
+        border-radius: 28px;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .hero-grid {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Skip to main content for accessibility -->
-  <a href="#home" class="skip-to-main">Skip to main content</a>
-
-  <!-- Header -->
-  <header>
-    <nav>
-      <ul>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo">James<span style="color:#2563eb;">.</span>Carter</div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
         <li><a href="#home">Home</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="#services">Services</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-    </nav>
-  </header>
+    </div>
+  </nav>
 
   <main>
-    <!-- About Me Section -->
-    <section id="home">
-      <div class="about-container">
-        <h1>About Me</h1>
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="hero-badge"><i class="fas fa-graduation-cap"></i> IT & Business Administration · Marketing Management</span>
+          <h1>Bridging <span class="highlight">Technology</span> & <span class="highlight">Business Strategy</span></h1>
+          <p class="hero-desc">I'm James Carter — a dual-degree student specializing in Information Technology and Business Administration (Marketing Management). I combine programming, creative design, and marketing to deliver impactful solutions.</p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="#projects" class="btn">View Live Projects <i class="fas fa-arrow-right"></i></a>
+            <a href="#contact" class="btn btn-outline">Get in Touch</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="James Carter Profile">
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" style="background: var(--gray-bg);">
+      <div class="container">
+        <h2 class="section-title">Core <span>Competencies</span></h2>
+        <div class="skills-wrapper" id="skillsWrapper"></div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <h2 class="section-title">Professional <span>Services</span></h2>
+        <div class="services-grid" id="servicesGrid"></div>
+      </div>
+    </section>
+
+    <!-- Enhanced Projects Section with Visible Demos -->
+    <section id="projects" style="background: var(--gray-bg);">
+      <div class="container">
+        <h2 class="section-title">Featured <span>Projects</span> <i class="fas fa-code-branch"></i></h2>
+        <p style="text-align: center; margin-bottom: 2rem; color: #475569;">Live demos & case studies — click on any project to explore</p>
+        <div class="projects-grid" id="projectsGrid"></div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About <span>Me</span></h2>
         <div class="about-content">
-          <img src="ken.jpg" alt="Cyken Composo" class="about-image"/>
           <div class="about-text">
-            <p>Hello, my name is Cyken Cordita Composo, and I am currently pursuing a Bachelor of Science in Information Technology (BSIT) at Siargao Island Institute of Technology. With a passion for both technology and strategic thinking, I strive to integrate my analytical skills from the world of chess into my academic and professional pursuits.</p>
-            <p>As an avid chess player, I have been honing my skills for several years, participating in numerous local and regional tournaments.</p>
+            <p><i class="fas fa-university" style="color: #2563eb;"></i> <strong>Dual Degree Candidate:</strong> Information Technology & Business Administration (Major in Marketing Management). I thrive at the intersection of technical development and strategic marketing.</p>
+            <p>With expertise in <strong>graphics design, video editing, programming, business administration, and marketing strategy</strong>, I help brands build a cohesive digital presence. From coding responsive web applications to designing compelling marketing campaigns, I deliver measurable results.</p>
+            <p>My approach combines analytical thinking with creative execution — ensuring that every project not only looks great but also drives business growth. I've collaborated with startups, agencies, and corporate clients across various industries.</p>
+          </div>
+          <div class="about-stats">
+            <div class="stat"><h4>50+</h4><p>Projects</p></div>
+            <div class="stat"><h4>35+</h4><p>Happy Clients</p></div>
+            <div class="stat"><h4>98%</h4><p>Satisfaction</p></div>
           </div>
         </div>
       </div>
+    </section>
+
+    <section id="contact" style="background: var(--gray-bg);">
+      <div class="container">
+        <h2 class="section-title">Let's <span>Connect</span></h2>
+        <div class="contact-container">
+          <div class="contact-info">
+            <h3>Ready to elevate your brand?</h3>
+            <p>Whether you need a custom web application, marketing strategy, or creative content — I'm here to help.</p>
+            <div class="contact-detail">
+              <i class="fas fa-envelope"></i>
+              <span>james.carter@portfolio.dev</span>
+            </div>
+            <div class="contact-detail">
+              <i class="fas fa-phone-alt"></i>
+              <span>+1 (555) 789-0123</span>
+            </div>
+            <div class="contact-detail">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Boston, MA</span>
+            </div>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-behance"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <form class="contact-form" id="contactForm">
+            <input type="text" placeholder="Your Name" id="contactName" required>
+            <input type="email" placeholder="Email Address" id="contactEmail" required>
+            <textarea rows="4" placeholder="Tell me about your project or inquiry..." id="contactMessage" required></textarea>
+            <button type="submit" class="btn">Send Message <i class="fas fa-paper-plane"></i></button>
+            <p id="formFeedback" style="font-size:0.85rem; margin-top: 6px;"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 James Carter — IT & Business Administration (Marketing Management) | Graphics · Video · Programming · Marketing · Business Strategy</p>
+  </footer>
+
+  <script>
+    // Enhanced Projects Data with detailed metrics, live demo links, and realistic case studies
+    const projectsData = [
+      {
+        title: "EcoLife Sustainability Platform",
+        description: "A full-stack web platform for eco-conscious consumers. Features include carbon footprint calculator, sustainable product marketplace, and educational blog with 5k+ monthly visitors.",
+        tags: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+        metrics: { users: "5.2k+", impact: "2.3k+ products", rating: "4.9" },
+        demoLink: "https://ecolife-demo.netlify.app",
+        codeLink: "https://github.com/jamescarter/ecolife",
+        icon: "fas fa-leaf",
+        bgGradient: "linear-gradient(135deg, #10b981, #059669)"
+      },
+      {
+        title: "Viral Marketing Campaign Suite",
+        description: "A comprehensive marketing dashboard for managing social media campaigns, analytics, and content scheduling. Used by 15+ businesses to increase engagement by 200%.",
+        tags: ["Vue.js", "D3.js", "Firebase", "Marketing API"],
+        metrics: { engagement: "+187%", clients: "15+", roi: "3.2x" },
+        demoLink: "https://viral-suite-demo.vercel.app",
+        codeLink: "https://github.com/jamescarter/marketing-suite",
+        icon: "fas fa-chart-line",
+        bgGradient: "linear-gradient(135deg, #3b82f6, #1e40af)"
+      },
+      {
+        title: "Creative Studio Portfolio + Motion Reel",
+        description: "Award-winning video production portfolio featuring motion graphics, brand storytelling, and commercial work. Includes interactive video gallery and client testimonials.",
+        tags: ["Video Editing", "Premiere Pro", "After Effects", "GSAP"],
+        metrics: { views: "125k+", projects: "24", awards: "3" },
+        demoLink: "https://jamescarter-creative.netlify.app",
+        codeLink: "https://github.com/jamescarter/motion-portfolio",
+        icon: "fas fa-video",
+        bgGradient: "linear-gradient(135deg, #8b5cf6, #6d28d9)"
+      },
+      {
+        title: "Brand Identity & Marketing Strategy Pack",
+        description: "Complete rebranding project for a fintech startup: logo design, brand guidelines, social media templates, and go-to-market strategy that increased brand recognition by 150%.",
+        tags: ["Photoshop", "Illustrator", "Strategy", "SEO"],
+        metrics: { recognition: "+150%", leads: "+230%", timeline: "8 weeks" },
+        demoLink: "https://brand-case-study.netlify.app",
+        codeLink: "https://behance.net/jamescarter/branding",
+        icon: "fas fa-paintbrush-fine",
+        bgGradient: "linear-gradient(135deg, #f59e0b, #d97706)"
+      }
+    ];
+
+    const skillsCategories = [
+      {
+        title: "Information Technology & Programming",
+        icon: "fas fa-laptop-code",
+        skills: [
+          { name: "JavaScript / TypeScript", icon: "fab fa-js" },
+          { name: "React & Next.js", icon: "fab fa-react" },
+          { name: "Python / Django", icon: "fab fa-python" },
+          { name: "Node.js / Express", icon: "fab fa-node" },
+          { name: "Database Management", icon: "fas fa-database" },
+          { name: "REST APIs & Integration", icon: "fas fa-plug" }
+        ]
+      },
+      {
+        title: "Business Administration & Marketing",
+        icon: "fas fa-chart-line",
+        skills: [
+          { name: "Digital Marketing Strategy", icon: "fas fa-bullhorn" },
+          { name: "Brand Management", icon: "fas fa-trademark" },
+          { name: "Market Research & Analytics", icon: "fas fa-chart-simple" },
+          { name: "SEO & SEM", icon: "fab fa-google" },
+          { name: "Social Media Campaigns", icon: "fas fa-hashtag" },
+          { name: "Business Process Optimization", icon: "fas fa-chart-gantt" }
+        ]
+      },
+      {
+        title: "Creative & Visual Arts",
+        icon: "fas fa-palette",
+        skills: [
+          { name: "Adobe Photoshop", icon: "fab fa-adobe" },
+          { name: "Illustrator & Vector Art", icon: "fas fa-draw-polygon" },
+          { name: "Premiere Pro (Video Editing)", icon: "fas fa-video" },
+          { name: "After Effects (Motion)", icon: "fas fa-film" },
+          { name: "UI/UX Design", icon: "fas fa-pen-fancy" },
+          { name: "Motion Graphics", icon: "fas fa-magic" }
+        ]
+      }
+    ];
+
+    const servicesData = [
+      {
+        title: "Graphics Design & Brand Identity",
+        description: "Professional logo design, brand guidelines, social media visuals, and print materials that establish a strong market presence.",
+        icon: "fas fa-paintbrush-fine",
+        tag: "Creative Direction"
+      },
+      {
+        title: "Video Editing & Motion Graphics",
+        description: "High-quality video editing, promotional content, YouTube videos, and dynamic motion graphics for marketing campaigns.",
+        icon: "fas fa-video",
+        tag: "Post-Production"
+      },
+      {
+        title: "Web Development & Programming",
+        description: "Custom websites, web applications, and automation tools using modern tech stacks (React, Node.js, Python).",
+        icon: "fas fa-laptop-code",
+        tag: "Development"
+      },
+      {
+        title: "Marketing Strategy & Consulting",
+        description: "Data-driven marketing plans, campaign management, SEO optimization, and business growth consulting.",
+        icon: "fas fa-chart-line",
+        tag: "Strategic Consulting"
+      }
+    ];
+
+    function renderSkills() {
+      const container = document.getElementById("skillsWrapper");
+      if (!container) return;
+      container.innerHTML = skillsCategories.map(cat => `
+        <div class="skills-category">
+          <h3><i class="${cat.icon}"></i> ${cat.title}</h3>
+          <div class="skills-grid">
+            ${cat.skills.map(skill => `<div class="skill-card"><i class="${skill.icon}"></i> ${skill.name}</div>`).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderServices() {
+      const container = document.getElementById("servicesGrid");
+      if (!container) return;
+      container.innerHTML = servicesData.map(service => `
+        <div class="service-card">
+          <div class="service-icon"><i class="${service.icon}"></i></div>
+          <h3>${service.title}</h3>
+          <p>${service.description}</p>
+        </div>
+      `).join('');
+    }
+
+    function renderProjects() {
+      const container = document.getElementById("projectsGrid");
+      if (!container) return;
+      container.innerHTML = projectsData.map(proj => `
+        <div class="project-card">
+          <div class="project-img" style="background: ${proj.bgGradient};">
+            <i class="${proj.icon}" style="font-size: 4rem; opacity: 0.9;"></i>
+            <div class="project-img-overlay">
+              <a href="${proj.demoLink}" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="${proj.codeLink}" target="_blank"><i class="fab fa-github"></i> Source</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>${proj.title}</h3>
+            <p>${proj.description}</p>
+            <div class="project-tags">
+              ${proj.tags.map(tag => `<span>#${tag}</span>`).join('')}
+            </div>
+            <div class="project-stats">
+              ${Object.entries(proj.metrics).map(([key, val]) => `<span><i class="fas fa-chart-simple"></i> ${key.replace(/([A-Z])/g, ' $1').trim()}: ${val}</span>`).join('')}
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Contact Form Handler
+    const contactForm = document.getElementById("contactForm");
+    const feedbackPara = document.getElementById("formFeedback");
+    if (contactForm) {
+      contactForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+        const name = document.getElementById("contactName")?.value.trim();
+        const email = document.getElementById("contactEmail")?.value.trim();
+        const message = document.getElementById("contactMessage")?.value.trim();
+        if (!name || !email || !message) {
+          feedbackPara.innerHTML = "⚠️ Please fill in all fields.";
+          feedbackPara.style.color = "#dc2626";
+          setTimeout(() => { feedbackPara.innerHTML = ""; }, 3000);
+          return;
+        }
+        if (!email.includes("@") || !email.includes(".")) {
+          feedbackPara.innerHTML = "📧 Please enter a valid email address.";
+          feedbackPara.style.color = "#dc2626";
+          setTimeout(() => { feedbackPara.innerHTML = ""; }, 3000);
+          return;
+        }
+        feedbackPara.innerHTML = "✅ Message sent successfully! I'll get back to you within 24 hours.";
+        feedbackPara.style.color = "#16a34a";
+        contactForm.reset();
+        setTimeout(() => { feedbackPara.innerHTML = ""; }, 4000);
+      });
+    }
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        const icon = menuToggle.querySelector("i");
+        if (navLinks.classList.contains("active")) {
+          icon.classList.remove("fa-bars");
+          icon.classList.add("fa-times");
+        } else {
+          icon.classList.remove("fa-times");
+          icon.classList.add("fa-bars");
+        }
+      });
+      navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+          const icon = menuToggle.querySelector("i");
+          if (icon) {
+            icon.classList.remove("fa-times");
+            icon.classList.add("fa-bars");
+          }
+        });
+      });
+    }
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function(e) {
+        const targetId = this.getAttribute("href");
+        if (targetId === "#" || !targetId) return;
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          const offsetTop = targetElement.offsetTop - 70;
+          window.scrollTo({ top: offsetTop, behavior: "smooth" });
+          history.pushState(null, null, targetId);
+        }
+      });
+    });
+
+    // Active Link Highlight
+    function setActiveLink() {
+      const sections = document.querySelectorAll("section");
+      const navAnchors = document.querySelectorAll(".nav-links a");
+      let current = "";
+      const scrollPos = window.scrollY + 100;
+      sections.forEach(section => {
+        const top = section.offsetTop;
+        const height = section.clientHeight;
+        if (scrollPos >= top && scrollPos < top + height) {
+          current = section.getAttribute("id");
+        }
+      });
+      navAnchors.forEach(anchor => {
+        const href = anchor.getAttribute("href").substring(1);
+        if (href === current) {
+          anchor.style.color = "#2563eb";
+          anchor.style.fontWeight = "600";
+        } else {
+          anchor.style.color = "#1e293b";
+          anchor.style.fontWeight = "500";
+        }
+      });
+    }
+
+    window.addEventListener("scroll", setActiveLink);
+    window.addEventListener("load", () => {
+      renderSkills();
+      renderServices();
+      renderProjects();
+      setActiveLink();
+    });
+  </script>
+</body>
+</html>      </div>
     </section>
 
     <!-- Skills Section -->
