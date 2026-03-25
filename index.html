@@ -209,6 +209,7 @@
       box-shadow: 0 25px 45px -12px rgba(37, 99, 235, 0.3);
       border: 4px solid white;
       transition: transform 0.3s ease;
+      background: #eef2ff;
     }
 
     .profile-img:hover {
@@ -314,7 +315,7 @@
       color: #475569;
     }
 
-    /* Projects Section - With Real Images */
+    /* Projects Section - With Real Images & Fallbacks */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
@@ -338,6 +339,7 @@
       position: relative;
       height: 240px;
       overflow: hidden;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
     }
     .project-img {
       width: 100%;
@@ -348,10 +350,20 @@
     .project-card:hover .project-img {
       transform: scale(1.05);
     }
+    .fallback-img {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #2563eb, #1e40af);
+      color: white;
+      font-size: 3.5rem;
+    }
     .project-img-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(30, 64, 175, 0.95));
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.92), rgba(30, 64, 175, 0.96));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -415,6 +427,7 @@
       border-top: 1px solid var(--border-light);
       font-size: 0.8rem;
       color: #64748b;
+      flex-wrap: wrap;
     }
     .project-stats i {
       margin-right: 5px;
@@ -576,7 +589,7 @@
 <body>
   <nav class="navbar">
     <div class="container nav-container">
-      <div class="logo">Psy<span style="color:#2563eb;">.</span>Creative's</div>
+      <div class="logo">Cyken<span style="color:#2563eb;">.</span>Composo</div>
       <button class="menu-toggle" id="menuToggle" aria-label="Menu">
         <i class="fas fa-bars"></i>
       </button>
@@ -605,7 +618,7 @@
         </div>
         <div class="hero-image">
           <div class="profile-wrapper">
-            <img class="profile-img" src="ken.jpg">
+            <img class="profile-img" src="ken.jpg" alt="Cyken Composo - IT & Marketing Specialist" onerror="this.onerror=null; this.src='https://placehold.co/600x600/eef2ff/2563eb?text=Cyken+Composo';">
             <div class="profile-badge">
               <i class="fas fa-crown"></i>
               <span>IT · Marketing · Creative</span>
@@ -629,7 +642,6 @@
       </div>
     </section>
 
-    <!-- Projects Section with Real Images -->
     <section id="projects" style="background: var(--gray-bg);">
       <div class="container">
         <h2 class="section-title">Featured <span>Projects</span> <i class="fas fa-image"></i></h2>
@@ -647,11 +659,6 @@
             <p>With expertise in <strong>graphics design, video editing, programming, business administration, and marketing strategy</strong>, I help brands build a cohesive digital presence. From coding responsive web applications to designing compelling marketing campaigns, I deliver measurable results.</p>
             <p>My approach combines analytical thinking with creative execution — ensuring that every project not only looks great but also drives business growth. I've collaborated with startups, agencies, and corporate clients across various industries.</p>
           </div>
-          <!-- <div class="about-stats">
-            <div class="stat"><h4>50+</h4><p>Projects</p></div>
-            <div class="stat"><h4>35+</h4><p>Happy Clients</p></div>
-            <div class="stat"><h4>98%</h4><p>Satisfaction</p></div>
-          </div> -->
         </div>
       </div>
     </section>
@@ -665,15 +672,15 @@
             <p>Whether you need a custom web application, marketing strategy, or creative content — I'm here to help.</p>
             <div class="contact-detail">
               <i class="fas fa-envelope"></i>
-              <span>james.carter@portfolio.dev</span>
+              <span>cyken.composo@portfolio.dev</span>
             </div>
             <div class="contact-detail">
               <i class="fas fa-phone-alt"></i>
-              <span>+1 (555) 789-0123</span>
+              <span>+63 (912) 345-6789</span>
             </div>
             <div class="contact-detail">
               <i class="fas fa-map-marker-alt"></i>
-              <span>Boston, MA</span>
+              <span>Philippines</span>
             </div>
             <div class="social-links">
               <a href="#"><i class="fab fa-github"></i></a>
@@ -699,50 +706,48 @@
   </footer>
 
   <script>
-    // Enhanced Projects Data with High-Quality Images
+    // Enhanced Projects Data with Robust Image Handling & Corrected Data
     const projectsData = [
- {
-    "title": "My t-shirt design",
-    "description": "As a graphic designer, I like transforming concepts into visually striking graphics. I design everything that needs a creative touch, including t-shirts, menus, jerseys, packaging, clothes, and more. I use programs like Photoshop, PicsArt, Canva, and Alight Motion to make ideas come to life in a way that complements your brand or style.",
-    "tags": ["Photoshop", "Picsart", "Alight Motion", "Canva"],
-    // "metrics": { "users": "5.2k+", "impact": "2.3k+ products", "rating": "4.9" },
-    // "demoLink": "https://ecolife-demo.netlify.app",
-    // "codeLink": "https://github.com/jamescarter/ecolife",
-    "image": "project.png",
-    "fallbackIcon": "fas fa-leaf"
-  },
-  {
-    "title": "Font end Mentor Challenges",
-    "description": "Additionally, I work on front-end design, making websites' user interfaces simple and intuitive. I create layouts that look attractive and function properly on many devices using CSS, Bootstrap, and other front-end tools.
-
-I like transforming concepts into interactive designs, ensuring that everything is both aesthetically pleasing and user-friendly. My objective is to design websites that are easy to use, responsive, and feel contemporary.",
-    "tags": ["php", "javascript", "mysql", "Marketing API"],
-    "metrics": { "engagement": "+187%", "clients": "15+", "roi": "3.2x" },
-    "demoLink": "https://viral-suite-demo.vercel.app",
-    "codeLink": "https://github.com/jamescarter/marketing-suite",
-    "image": "scr.png",
-    "fallbackIcon": "fas fa-chart-line"
-  },
-  {
-    "title": "System Project",
-    "description": "Developing system for library using QR code, and library management system, using PHP, MySQL, JavaScript and other languages.",
-    "tags": ["Video Editing", "Premiere Pro", "After Effects", "GSAP"],
-    "metrics": { "views": "125k+", "projects": "24", "awards": "3" },
-    "demoLink": "https://jamescarter-creative.netlify.app",
-    "codeLink": "https://github.com/jamescarter/motion-portfolio",
-    "image": "rcs.png",
-    "fallbackIcon": "fas fa-video"
-  },
-  {
-    "title": "Online Freelancing",
-    "description": "Freelancing for online booking tickets, for hotel airlines, ferry and other ticket.",
-    "tags": ["Photoshop", "Illustrator", "Strategy", "SEO"],
-    "metrics": { "recognition": "+150%", "leads": "+230%", "timeline": "8 weeks" },
-    "demoLink": "https://brand-case-study.netlify.app",
-    "codeLink": "https://behance.net/jamescarter/branding",
-    "image": "frl.png",
-    "fallbackIcon": "fas fa-paintbrush-fine"
-  }
+      {
+        title: "T-Shirt & Graphic Design Studio",
+        description: "Creative graphic design for t-shirts, jerseys, menus, packaging, and clothes. Using Photoshop, PicsArt, Canva, and Alight Motion to bring brand identities to life with bold aesthetics and commercial appeal.",
+        tags: ["Photoshop", "Picsart", "Alight Motion", "Canva"],
+        metrics: { "Designs": "45+", "Clients": "28+", "Satisfaction": "99%" },
+        demoLink: "https://www.behance.net/gallery/design-showcase",
+        codeLink: "https://www.instagram.com/cyken.designs",
+        image: "project.png",
+        fallbackIcon: "fas fa-palette"
+      },
+      {
+        title: "Frontend Mentor Challenges Hub",
+        description: "Interactive UI components and responsive websites built with HTML5, CSS3, JavaScript, and Bootstrap. Pixel-perfect implementations that solve real-world front-end problems, ensuring accessibility and modern design.",
+        tags: ["HTML/CSS", "JavaScript", "Bootstrap", "Responsive"],
+        metrics: { "Challenges": "24+", "Stars": "126", "Optimized": "100%" },
+        demoLink: "https://frontend-mentor-demo.netlify.app",
+        codeLink: "https://github.com/cyken/frontend-challenges",
+        image: "scr.png",
+        fallbackIcon: "fas fa-code"
+      },
+      {
+        title: "Library Management System (QR + PHP)",
+        description: "Full-stack library system using QR code technology, PHP, MySQL, and JavaScript. Streamlines book borrowing, inventory tracking, and real-time analytics for educational institutions.",
+        tags: ["PHP", "MySQL", "QR Code", "JavaScript"],
+        metrics: { "Users": "300+", "Books": "2.5k+", "Efficiency": "+78%" },
+        demoLink: "https://github.com/cyken/library-qr-system",
+        codeLink: "https://github.com/cyken/library-qr-system",
+        image: "rcs.png",
+        fallbackIcon: "fas fa-book"
+      },
+      {
+        title: "Online Freelancing Hub (Travel & Tickets)",
+        description: "Freelance platform for booking airline tickets, hotel reservations, ferry schedules, and tour packages. Built with modern web stack, real-time availability, and secure payment gateway integration.",
+        tags: ["Node.js", "Express", "MongoDB", "Payments"],
+        metrics: { "Bookings": "1.2k+", "Partners": "15+", "Uptime": "99.9%" },
+        demoLink: "https://travel-hub-demo.vercel.app",
+        codeLink: "https://github.com/cyken/travel-booking",
+        image: "frl.png",
+        fallbackIcon: "fas fa-plane"
+      }
     ];
 
     const skillsCategories = [
@@ -832,16 +837,35 @@ I like transforming concepts into interactive designs, ensuring that everything 
       `).join('');
     }
 
+    // Enhanced image error handler with fallback UI
+    function handleImageError(imgElement, fallbackIcon, title) {
+      const container = imgElement.parentElement;
+      if (container && !container.querySelector('.fallback-img')) {
+        const fallbackDiv = document.createElement('div');
+        fallbackDiv.className = 'fallback-img';
+        fallbackDiv.innerHTML = `<i class="${fallbackIcon}" style="font-size: 4rem; margin-bottom: 0.5rem; display: block;"></i><span style="font-size: 0.9rem; font-weight: 500;">${title || 'Project Visual'}</span>`;
+        fallbackDiv.style.display = 'flex';
+        fallbackDiv.style.flexDirection = 'column';
+        fallbackDiv.style.alignItems = 'center';
+        fallbackDiv.style.justifyContent = 'center';
+        fallbackDiv.style.background = 'linear-gradient(135deg, #2563eb, #1e40af)';
+        fallbackDiv.style.color = 'white';
+        fallbackDiv.style.height = '100%';
+        imgElement.style.display = 'none';
+        container.appendChild(fallbackDiv);
+      }
+    }
+
     function renderProjects() {
       const container = document.getElementById("projectsGrid");
       if (!container) return;
-      container.innerHTML = projectsData.map(proj => `
+      container.innerHTML = projectsData.map((proj, idx) => `
         <div class="project-card">
           <div class="project-img-container">
-            <img class="project-img" src="${proj.image}" alt="${proj.title}" onerror="this.onerror=null; this.parentElement.innerHTML='<div style=\'height:100%;background:linear-gradient(135deg, #2563eb, #1e40af);display:flex;align-items:center;justify-content:center;\'><i class=\'${proj.fallbackIcon}\' style=\'font-size:4rem;color:white;opacity:0.8;\'></i></div>';">
+            <img class="project-img" src="${proj.image}" alt="${proj.title}" onerror="handleImageError(this, '${proj.fallbackIcon}', '${proj.title}')">
             <div class="project-img-overlay">
-              <a href="${proj.demoLink}" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-              <a href="${proj.codeLink}" target="_blank"><i class="fab fa-github"></i> Source</a>
+              <a href="${proj.demoLink}" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="${proj.codeLink}" target="_blank" rel="noopener"><i class="fab fa-github"></i> Source</a>
             </div>
           </div>
           <div class="project-info">
@@ -851,7 +875,7 @@ I like transforming concepts into interactive designs, ensuring that everything 
               ${proj.tags.map(tag => `<span>#${tag}</span>`).join('')}
             </div>
             <div class="project-stats">
-              ${Object.entries(proj.metrics).map(([key, val]) => `<span><i class="fas fa-chart-simple"></i> ${key.replace(/([A-Z])/g, ' $1').trim()}: ${val}</span>`).join('')}
+              ${Object.entries(proj.metrics).map(([key, val]) => `<span><i class="fas fa-chart-simple"></i> ${key}: ${val}</span>`).join('')}
             </div>
           </div>
         </div>
@@ -914,52 +938,4 @@ I like transforming concepts into interactive designs, ensuring that everything 
     }
 
     // Smooth Scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener("click", function(e) {
-        const targetId = this.getAttribute("href");
-        if (targetId === "#" || !targetId) return;
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          e.preventDefault();
-          const offsetTop = targetElement.offsetTop - 70;
-          window.scrollTo({ top: offsetTop, behavior: "smooth" });
-          history.pushState(null, null, targetId);
-        }
-      });
-    });
-
-    // Active Link Highlight
-    function setActiveLink() {
-      const sections = document.querySelectorAll("section");
-      const navAnchors = document.querySelectorAll(".nav-links a");
-      let current = "";
-      const scrollPos = window.scrollY + 100;
-      sections.forEach(section => {
-        const top = section.offsetTop;
-        const height = section.clientHeight;
-        if (scrollPos >= top && scrollPos < top + height) {
-          current = section.getAttribute("id");
-        }
-      });
-      navAnchors.forEach(anchor => {
-        const href = anchor.getAttribute("href").substring(1);
-        if (href === current) {
-          anchor.style.color = "#2563eb";
-          anchor.style.fontWeight = "600";
-        } else {
-          anchor.style.color = "#1e293b";
-          anchor.style.fontWeight = "500";
-        }
-      });
-    }
-
-    window.addEventListener("scroll", setActiveLink);
-    window.addEventListener("load", () => {
-      renderSkills();
-      renderServices();
-      renderProjects();
-      setActiveLink();
-    });
-  </script>
-</body>
-</html>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor =>
