@@ -121,11 +121,6 @@
       color: white;
     }
 
-    .btn-sm {
-      padding: 0.5rem 1.2rem;
-      font-size: 0.85rem;
-    }
-
     .btn:hover {
       background: var(--primary-dark);
       transform: translateY(-2px);
@@ -187,7 +182,6 @@
       margin: 1.5rem 0;
     }
 
-    /* Profile Image Styles */
     .hero-image {
       flex: 1;
       display: flex;
@@ -209,7 +203,7 @@
       box-shadow: 0 25px 45px -12px rgba(37, 99, 235, 0.3);
       border: 4px solid white;
       transition: transform 0.3s ease;
-      background: #eef2ff;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
 
     .profile-img:hover {
@@ -232,12 +226,12 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
-    /* Skills Section */
     .skills-wrapper {
       display: flex;
       flex-direction: column;
       gap: 2.5rem;
     }
+    
     .skills-category {
       background: var(--card-bg);
       border-radius: 28px;
@@ -245,6 +239,7 @@
       box-shadow: var(--card-shadow);
       border: 1px solid var(--border-light);
     }
+    
     .skills-category h3 {
       font-size: 1.5rem;
       margin-bottom: 1.5rem;
@@ -253,14 +248,17 @@
       gap: 0.75rem;
       color: #0f172a;
     }
+    
     .skills-category h3 i {
       color: var(--primary);
     }
+    
     .skills-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
     }
+    
     .skill-card {
       background: var(--gray-bg);
       padding: 0.7rem 1.4rem;
@@ -272,16 +270,17 @@
       gap: 8px;
       font-size: 0.9rem;
     }
+    
     .skill-card i {
       color: var(--primary);
     }
 
-    /* Services Section */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
       gap: 2rem;
     }
+    
     .service-card {
       background: var(--card-bg);
       border-radius: 28px;
@@ -291,10 +290,12 @@
       border: 1px solid var(--border-light);
       text-align: center;
     }
+    
     .service-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.12);
     }
+    
     .service-icon {
       width: 70px;
       height: 70px;
@@ -307,20 +308,22 @@
       font-size: 2rem;
       color: var(--primary);
     }
+    
     .service-card h3 {
       font-size: 1.4rem;
       margin-bottom: 0.8rem;
     }
+    
     .service-card p {
       color: #475569;
     }
 
-    /* Projects Section - With Real Images & Fallbacks */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
       gap: 2rem;
     }
+    
     .project-card {
       background: var(--card-bg);
       border-radius: 28px;
@@ -331,35 +334,30 @@
       display: flex;
       flex-direction: column;
     }
+    
     .project-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 25px 40px -15px rgba(0, 0, 0, 0.2);
     }
+    
     .project-img-container {
       position: relative;
       height: 240px;
       overflow: hidden;
-      background: linear-gradient(135deg, #1e293b, #0f172a);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
+    
     .project-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.5s ease;
     }
+    
     .project-card:hover .project-img {
       transform: scale(1.05);
     }
-    .fallback-img {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #2563eb, #1e40af);
-      color: white;
-      font-size: 3.5rem;
-    }
+    
     .project-img-overlay {
       position: absolute;
       inset: 0;
@@ -371,9 +369,11 @@
       opacity: 0;
       transition: 0.3s;
     }
+    
     .project-card:hover .project-img-overlay {
       opacity: 1;
     }
+    
     .project-img-overlay a {
       color: white;
       font-size: 0.9rem;
@@ -385,32 +385,38 @@
       transition: 0.2s;
       backdrop-filter: blur(4px);
     }
+    
     .project-img-overlay a:hover {
       background: white;
       color: var(--primary);
       transform: scale(1.05);
     }
+    
     .project-info {
       padding: 1.5rem;
       flex: 1;
     }
+    
     .project-info h3 {
       font-size: 1.4rem;
       margin-bottom: 0.5rem;
       color: #0f172a;
     }
+    
     .project-info p {
       color: #475569;
       font-size: 0.9rem;
       margin: 0.5rem 0;
       line-height: 1.5;
     }
+    
     .project-tags {
       display: flex;
       gap: 0.6rem;
       flex-wrap: wrap;
       margin: 1rem 0;
     }
+    
     .project-tags span {
       background: var(--gray-bg);
       padding: 0.25rem 0.8rem;
@@ -419,6 +425,7 @@
       font-weight: 600;
       color: var(--primary-dark);
     }
+    
     .project-stats {
       display: flex;
       gap: 1.2rem;
@@ -429,12 +436,12 @@
       color: #64748b;
       flex-wrap: wrap;
     }
+    
     .project-stats i {
       margin-right: 5px;
       color: var(--primary);
     }
 
-    /* About */
     .about-content {
       display: flex;
       gap: 3rem;
@@ -446,31 +453,12 @@
       box-shadow: var(--card-shadow);
       border: 1px solid var(--border-light);
     }
+    
     .about-text p {
       margin-bottom: 1rem;
       color: #334155;
     }
-    .about-stats {
-      flex: 1;
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .stat {
-      background: var(--gray-bg);
-      padding: 1.2rem;
-      border-radius: 1.5rem;
-      text-align: center;
-      min-width: 100px;
-    }
-    .stat h4 {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--primary);
-    }
 
-    /* Contact */
     .contact-container {
       display: flex;
       gap: 2rem;
@@ -481,25 +469,30 @@
       padding: 2.5rem;
       border: 1px solid var(--border-light);
     }
+    
     .contact-info {
       flex: 1;
     }
+    
     .contact-detail {
       display: flex;
       align-items: center;
       gap: 1rem;
       margin: 1.5rem 0;
     }
+    
     .contact-detail i {
       font-size: 1.4rem;
       color: var(--primary);
       width: 40px;
     }
+    
     .social-links {
       display: flex;
       gap: 1rem;
       margin-top: 2rem;
     }
+    
     .social-links a {
       background: var(--gray-bg);
       width: 44px;
@@ -511,17 +504,21 @@
       color: var(--primary);
       font-size: 1.3rem;
       transition: 0.2s;
+      text-decoration: none;
     }
+    
     .social-links a:hover {
       background: var(--primary);
       color: white;
     }
+    
     .contact-form {
       flex: 1;
       display: flex;
       flex-direction: column;
       gap: 1rem;
     }
+    
     .contact-form input, .contact-form textarea {
       width: 100%;
       padding: 0.9rem 1.2rem;
@@ -531,16 +528,29 @@
       transition: 0.2s;
       outline: none;
     }
+    
     .contact-form input:focus, .contact-form textarea:focus {
       border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
     }
+    
     footer {
       text-align: center;
       padding: 2rem;
       border-top: 1px solid var(--border-light);
       color: #64748b;
       background: white;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+    
+    .section-title span {
+      color: var(--primary);
     }
 
     @media (max-width: 768px) {
@@ -618,7 +628,9 @@
         </div>
         <div class="hero-image">
           <div class="profile-wrapper">
-            <img class="profile-img" src="ken.jpg" alt="Cyken Composo - IT & Marketing Specialist" onerror="this.onerror=null; this.src='https://placehold.co/600x600/eef2ff/2563eb?text=Cyken+Composo';">
+            <div class="profile-img" style="display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+              <i class="fas fa-user-circle" style="font-size: 120px; color: white; opacity: 0.9;"></i>
+            </div>
             <div class="profile-badge">
               <i class="fas fa-crown"></i>
               <span>IT · Marketing · Creative</span>
@@ -706,50 +718,6 @@
   </footer>
 
   <script>
-    // Enhanced Projects Data with Robust Image Handling & Corrected Data
-    const projectsData = [
-      {
-        title: "T-Shirt & Graphic Design Studio",
-        description: "Creative graphic design for t-shirts, jerseys, menus, packaging, and clothes. Using Photoshop, PicsArt, Canva, and Alight Motion to bring brand identities to life with bold aesthetics and commercial appeal.",
-        tags: ["Photoshop", "Picsart", "Alight Motion", "Canva"],
-        metrics: { "Designs": "45+", "Clients": "28+", "Satisfaction": "99%" },
-        demoLink: "https://www.behance.net/gallery/design-showcase",
-        codeLink: "https://www.instagram.com/cyken.designs",
-        image: "project.png",
-        fallbackIcon: "fas fa-palette"
-      },
-      {
-        title: "Frontend Mentor Challenges Hub",
-        description: "Interactive UI components and responsive websites built with HTML5, CSS3, JavaScript, and Bootstrap. Pixel-perfect implementations that solve real-world front-end problems, ensuring accessibility and modern design.",
-        tags: ["HTML/CSS", "JavaScript", "Bootstrap", "Responsive"],
-        metrics: { "Challenges": "24+", "Stars": "126", "Optimized": "100%" },
-        demoLink: "https://frontend-mentor-demo.netlify.app",
-        codeLink: "https://github.com/cyken/frontend-challenges",
-        image: "scr.png",
-        fallbackIcon: "fas fa-code"
-      },
-      {
-        title: "Library Management System (QR + PHP)",
-        description: "Full-stack library system using QR code technology, PHP, MySQL, and JavaScript. Streamlines book borrowing, inventory tracking, and real-time analytics for educational institutions.",
-        tags: ["PHP", "MySQL", "QR Code", "JavaScript"],
-        metrics: { "Users": "300+", "Books": "2.5k+", "Efficiency": "+78%" },
-        demoLink: "https://github.com/cyken/library-qr-system",
-        codeLink: "https://github.com/cyken/library-qr-system",
-        image: "rcs.png",
-        fallbackIcon: "fas fa-book"
-      },
-      {
-        title: "Online Freelancing Hub (Travel & Tickets)",
-        description: "Freelance platform for booking airline tickets, hotel reservations, ferry schedules, and tour packages. Built with modern web stack, real-time availability, and secure payment gateway integration.",
-        tags: ["Node.js", "Express", "MongoDB", "Payments"],
-        metrics: { "Bookings": "1.2k+", "Partners": "15+", "Uptime": "99.9%" },
-        demoLink: "https://travel-hub-demo.vercel.app",
-        codeLink: "https://github.com/cyken/travel-booking",
-        image: "frl.png",
-        fallbackIcon: "fas fa-plane"
-      }
-    ];
-
     const skillsCategories = [
       {
         title: "Information Technology & Programming",
@@ -812,6 +780,49 @@
       }
     ];
 
+    const projectsData = [
+      {
+        title: "T-Shirt & Graphic Design Studio",
+        description: "Creative graphic design for t-shirts, jerseys, menus, packaging, and clothes. Using Photoshop, PicsArt, Canva, and Alight Motion to bring brand identities to life.",
+        tags: ["Photoshop", "Picsart", "Alight Motion", "Canva"],
+        metrics: { "Designs": "45+", "Clients": "28+", "Satisfaction": "99%" },
+        demoLink: "https://www.behance.net",
+        codeLink: "https://github.com",
+        icon: "fas fa-palette",
+        gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+      },
+      {
+        title: "Frontend Mentor Challenges Hub",
+        description: "Interactive UI components and responsive websites built with HTML5, CSS3, JavaScript, and Bootstrap. Pixel-perfect implementations with modern design.",
+        tags: ["HTML/CSS", "JavaScript", "Bootstrap", "Responsive"],
+        metrics: { "Challenges": "24+", "Stars": "126", "Optimized": "100%" },
+        demoLink: "https://frontend-mentor.netlify.app",
+        codeLink: "https://github.com",
+        icon: "fas fa-code",
+        gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
+      },
+      {
+        title: "Library Management System (QR + PHP)",
+        description: "Full-stack library system using QR code technology, PHP, MySQL, and JavaScript. Streamlines book borrowing and inventory tracking.",
+        tags: ["PHP", "MySQL", "QR Code", "JavaScript"],
+        metrics: { "Users": "300+", "Books": "2.5k+", "Efficiency": "+78%" },
+        demoLink: "https://github.com",
+        codeLink: "https://github.com",
+        icon: "fas fa-book",
+        gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+      },
+      {
+        title: "Online Freelancing Hub (Travel & Tickets)",
+        description: "Freelance platform for booking airline tickets, hotel reservations, ferry schedules, and tour packages with real-time availability.",
+        tags: ["Node.js", "Express", "MongoDB", "Payments"],
+        metrics: { "Bookings": "1.2k+", "Partners": "15+", "Uptime": "99.9%" },
+        demoLink: "https://travel-hub-demo.vercel.app",
+        codeLink: "https://github.com",
+        icon: "fas fa-plane",
+        gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
+      }
+    ];
+
     function renderSkills() {
       const container = document.getElementById("skillsWrapper");
       if (!container) return;
@@ -837,32 +848,16 @@
       `).join('');
     }
 
-    // Enhanced image error handler with fallback UI
-    function handleImageError(imgElement, fallbackIcon, title) {
-      const container = imgElement.parentElement;
-      if (container && !container.querySelector('.fallback-img')) {
-        const fallbackDiv = document.createElement('div');
-        fallbackDiv.className = 'fallback-img';
-        fallbackDiv.innerHTML = `<i class="${fallbackIcon}" style="font-size: 4rem; margin-bottom: 0.5rem; display: block;"></i><span style="font-size: 0.9rem; font-weight: 500;">${title || 'Project Visual'}</span>`;
-        fallbackDiv.style.display = 'flex';
-        fallbackDiv.style.flexDirection = 'column';
-        fallbackDiv.style.alignItems = 'center';
-        fallbackDiv.style.justifyContent = 'center';
-        fallbackDiv.style.background = 'linear-gradient(135deg, #2563eb, #1e40af)';
-        fallbackDiv.style.color = 'white';
-        fallbackDiv.style.height = '100%';
-        imgElement.style.display = 'none';
-        container.appendChild(fallbackDiv);
-      }
-    }
-
     function renderProjects() {
       const container = document.getElementById("projectsGrid");
       if (!container) return;
-      container.innerHTML = projectsData.map((proj, idx) => `
+      container.innerHTML = projectsData.map(proj => `
         <div class="project-card">
-          <div class="project-img-container">
-            <img class="project-img" src="${proj.image}" alt="${proj.title}" onerror="handleImageError(this, '${proj.fallbackIcon}', '${proj.title}')">
+          <div class="project-img-container" style="background: ${proj.gradient}">
+            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+              <i class="${proj.icon}" style="font-size: 5rem; color: white; margin-bottom: 1rem;"></i>
+              <span style="color: white; font-weight: 600; font-size: 1.1rem;">${proj.title}</span>
+            </div>
             <div class="project-img-overlay">
               <a href="${proj.demoLink}" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Live Demo</a>
               <a href="${proj.codeLink}" target="_blank" rel="noopener"><i class="fab fa-github"></i> Source</a>
@@ -882,7 +877,6 @@
       `).join('');
     }
 
-    // Contact Form Handler
     const contactForm = document.getElementById("contactForm");
     const feedbackPara = document.getElementById("formFeedback");
     if (contactForm) {
@@ -910,7 +904,6 @@
       });
     }
 
-    // Mobile Menu Toggle
     const menuToggle = document.getElementById("menuToggle");
     const navLinks = document.getElementById("navLinks");
     if (menuToggle && navLinks) {
@@ -937,5 +930,48 @@
       });
     }
 
-    // Smooth Scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor =>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function(e) {
+        const targetId = this.getAttribute("href");
+        if (targetId === "#" || !targetId) return;
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          const offsetTop = targetElement.offsetTop - 70;
+          window.scrollTo({ top: offsetTop, behavior: "smooth" });
+          history.pushState(null, null, targetId);
+        }
+      });
+    });
+
+    function setActiveLink() {
+      const sections = document.querySelectorAll("section");
+      const navAnchors = document.querySelectorAll(".nav-links a");
+      let current = "";
+      const scrollPos = window.scrollY + 100;
+      sections.forEach(section => {
+        const top = section.offsetTop;
+        const height = section.clientHeight;
+        if (scrollPos >= top && scrollPos < top + height) {
+          current = section.getAttribute("id");
+        }
+      });
+      navAnchors.forEach(anchor => {
+        const href = anchor.getAttribute("href").substring(1);
+        if (href === current) {
+          anchor.style.color = "#2563eb";
+          anchor.style.fontWeight = "600";
+        } else {
+          anchor.style.color = "#1e293b";
+          anchor.style.fontWeight = "500";
+        }
+      });
+    }
+
+    window.addEventListener("scroll", setActiveLink);
+    window.addEventListener("load", () => {
+      renderSkills();
+      renderServices();
+      renderProjects();
+      setActiveLink();
+    });
