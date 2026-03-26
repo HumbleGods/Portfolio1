@@ -699,13 +699,13 @@
   </footer>
 
   <script>
-    // Enhanced Projects Data with High-Quality Images — UPDATED: first project tags now reflect logo design tools, metrics cleared as per request.
+    // Updated Projects Data with all new tags and cleared metrics as requested
     const projectsData = [
       {
         title: "EcoLife Sustainability Platform",
         description: "A full-stack web platform for eco-conscious consumers. Features include carbon footprint calculator, sustainable product marketplace, and educational blog with 5k+ monthly visitors.",
-        tags: ["Photoshop", "Picsart", "Alight Motion", "Canva"],   // Changed to logo design / creative tools
-        metrics: { users: "", impact: "", rating: "" },               // Metrics cleared
+        tags: ["Photoshop", "Picsart", "Alight Motion", "Canva"],
+        metrics: { users: "", impact: "", rating: "" },
         demoLink: "https://ecolife-demo.netlify.app",
         codeLink: "https://github.com/jamescarter/ecolife",
         image: "project.png",
@@ -714,8 +714,8 @@
       {
         title: "Viral Marketing Campaign Suite",
         description: "A comprehensive marketing dashboard for managing social media campaigns, analytics, and content scheduling. Used by 15+ businesses to increase engagement by 200%.",
-        tags: ["Vue.js", "D3.js", "Firebase", "Marketing API"],
-        metrics: { engagement: "+187%", clients: "15+", roi: "3.2x" },
+        tags: ["html", "css", "bootstrap", "javascript"],
+        metrics: { engagement: "", clients: "", roi: "" },
         demoLink: "https://viral-suite-demo.vercel.app",
         codeLink: "https://github.com/jamescarter/marketing-suite",
         image: "scr.png",
@@ -724,8 +724,8 @@
       {
         title: "Creative Studio Portfolio + Motion Reel",
         description: "Award-winning video production portfolio featuring motion graphics, brand storytelling, and commercial work. Includes interactive video gallery and client testimonials.",
-        tags: ["Video Editing", "Premiere Pro", "After Effects", "GSAP"],
-        metrics: { views: "125k+", projects: "24", awards: "3" },
+        tags: ["php", "mysql", "json", "javascript"],
+        metrics: { views: "", projects: "", awards: "" },
         demoLink: "https://jamescarter-creative.netlify.app",
         codeLink: "https://github.com/jamescarter/motion-portfolio",
         image: "rcs.png",
@@ -734,8 +734,8 @@
       {
         title: "Brand Identity & Marketing Strategy Pack",
         description: "Complete rebranding project for a fintech startup: logo design, brand guidelines, social media templates, and go-to-market strategy that increased brand recognition by 150%.",
-        tags: ["Photoshop", "Illustrator", "Strategy", "SEO"],
-        metrics: { recognition: "+150%", leads: "+230%", timeline: "8 weeks" },
+        tags: ["byahiko", "Illustrator", "Strategy", "Marketing"],
+        metrics: { recognition: "", leads: "", timeline: "" },
         demoLink: "https://brand-case-study.netlify.app",
         codeLink: "https://behance.net/jamescarter/branding",
         image: "frl.png",
@@ -833,7 +833,12 @@
     function renderProjects() {
       const container = document.getElementById("projectsGrid");
       if (!container) return;
-      container.innerHTML = projectsData.map(proj => `
+      container.innerHTML = projectsData.map(proj => {
+        // Filter out metrics with empty string values so they don't display
+        const nonEmptyMetrics = Object.entries(proj.metrics).filter(([_, val]) => val !== "" && val !== undefined && val !== null);
+        const hasMetrics = nonEmptyMetrics.length > 0;
+        
+        return `
         <div class="project-card">
           <div class="project-img-container">
             <img class="project-img" src="${proj.image}" alt="${proj.title}" onerror="this.onerror=null; this.parentElement.innerHTML='<div style=\'height:100%;background:linear-gradient(135deg, #2563eb, #1e40af);display:flex;align-items:center;justify-content:center;\'><i class=\'${proj.fallbackIcon}\' style=\'font-size:4rem;color:white;opacity:0.8;\'></i></div>';">
@@ -849,11 +854,11 @@
               ${proj.tags.map(tag => `<span>#${tag}</span>`).join('')}
             </div>
             <div class="project-stats">
-              ${Object.entries(proj.metrics).filter(([_, val]) => val !== "" && val !== undefined && val !== null).map(([key, val]) => `<span><i class="fas fa-chart-simple"></i> ${key.replace(/([A-Z])/g, ' $1').trim()}: ${val}</span>`).join('') || `<span><i class="fas fa-brush"></i> Creative Project</span>`}
+              ${hasMetrics ? nonEmptyMetrics.map(([key, val]) => `<span><i class="fas fa-chart-simple"></i> ${key.replace(/([A-Z])/g, ' $1').trim()}: ${val}</span>`).join('') : `<span><i class="fas fa-brush"></i> Creative Project</span>`}
             </div>
           </div>
         </div>
-      `).join('');
+      `}).join('');
     }
 
     // Contact Form Handler
