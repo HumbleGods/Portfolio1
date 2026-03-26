@@ -699,13 +699,13 @@
   </footer>
 
   <script>
-    // Enhanced Projects Data with High-Quality Images
+    // Enhanced Projects Data with High-Quality Images — UPDATED: first project tags now reflect logo design tools, metrics cleared as per request.
     const projectsData = [
       {
         title: "EcoLife Sustainability Platform",
         description: "A full-stack web platform for eco-conscious consumers. Features include carbon footprint calculator, sustainable product marketplace, and educational blog with 5k+ monthly visitors.",
-        // tags: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
-        // metrics: { users: "5.2k+", impact: "2.3k+ products", rating: "4.9" },
+        tags: ["Photoshop", "Picsart", "Alight Motion", "Canva"],   // Changed to logo design / creative tools
+        metrics: { users: "", impact: "", rating: "" },               // Metrics cleared
         demoLink: "https://ecolife-demo.netlify.app",
         codeLink: "https://github.com/jamescarter/ecolife",
         image: "project.png",
@@ -714,8 +714,8 @@
       {
         title: "Viral Marketing Campaign Suite",
         description: "A comprehensive marketing dashboard for managing social media campaigns, analytics, and content scheduling. Used by 15+ businesses to increase engagement by 200%.",
-        // tags: ["Vue.js", "D3.js", "Firebase", "Marketing API"],
-        // metrics: { engagement: "+187%", clients: "15+", roi: "3.2x" },
+        tags: ["Vue.js", "D3.js", "Firebase", "Marketing API"],
+        metrics: { engagement: "+187%", clients: "15+", roi: "3.2x" },
         demoLink: "https://viral-suite-demo.vercel.app",
         codeLink: "https://github.com/jamescarter/marketing-suite",
         image: "scr.png",
@@ -724,8 +724,8 @@
       {
         title: "Creative Studio Portfolio + Motion Reel",
         description: "Award-winning video production portfolio featuring motion graphics, brand storytelling, and commercial work. Includes interactive video gallery and client testimonials.",
-        // tags: ["Video Editing", "Premiere Pro", "After Effects", "GSAP"],
-        // metrics: { views: "125k+", projects: "24", awards: "3" },
+        tags: ["Video Editing", "Premiere Pro", "After Effects", "GSAP"],
+        metrics: { views: "125k+", projects: "24", awards: "3" },
         demoLink: "https://jamescarter-creative.netlify.app",
         codeLink: "https://github.com/jamescarter/motion-portfolio",
         image: "rcs.png",
@@ -734,11 +734,10 @@
       {
         title: "Brand Identity & Marketing Strategy Pack",
         description: "Complete rebranding project for a fintech startup: logo design, brand guidelines, social media templates, and go-to-market strategy that increased brand recognition by 150%.",
-        // tags: ["Photoshop", "Illustrator", "Strategy", "SEO"],
-        // metrics: { recognition: "+150%", leads: "+230%", timeline: "8 weeks" },
+        tags: ["Photoshop", "Illustrator", "Strategy", "SEO"],
+        metrics: { recognition: "+150%", leads: "+230%", timeline: "8 weeks" },
         demoLink: "https://brand-case-study.netlify.app",
         codeLink: "https://behance.net/jamescarter/branding",
-        image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=500&fit=crop",
         image: "frl.png",
         fallbackIcon: "fas fa-paintbrush-fine"
       }
@@ -850,7 +849,7 @@
               ${proj.tags.map(tag => `<span>#${tag}</span>`).join('')}
             </div>
             <div class="project-stats">
-              ${Object.entries(proj.metrics).map(([key, val]) => `<span><i class="fas fa-chart-simple"></i> ${key.replace(/([A-Z])/g, ' $1').trim()}: ${val}</span>`).join('')}
+              ${Object.entries(proj.metrics).filter(([_, val]) => val !== "" && val !== undefined && val !== null).map(([key, val]) => `<span><i class="fas fa-chart-simple"></i> ${key.replace(/([A-Z])/g, ' $1').trim()}: ${val}</span>`).join('') || `<span><i class="fas fa-brush"></i> Creative Project</span>`}
             </div>
           </div>
         </div>
